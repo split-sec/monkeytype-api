@@ -8,18 +8,46 @@ let requestOptions = {
   'redirect': 'follow'
 };
 
-let data;
+function handleData(result) {
+  let data = result;
+  let userElem = document.getElementById("username-placeholder");
+  console.log(data);
+  userElem.innerText = data.data.name;
+
+  let contentElem = document.getElementById("content-placeholder");
+  
+  let optionArray = ["time", "words"];
+  let subOptionArray1 = ['30', '60', '120'];
+  let subOptionArray2 = ['50', '100'];
+  let attributesArray = ['acc', 'wpm', 'difficulty', 'language'];
+
+  for(let item of optionArray) {
+    contentElem.innerText += `${item}\n`;
+    let selectedArray;
+
+    if(item == 'time') {
+      selectedArray = subOptionArray1;
+    } else {
+      selectedArray = subOptionArray2;
+    }
+
+    for(let subItem of selectedArray) {
+      contentElem.innerText += `${subItem}\n`;
+      for(let attribute of attributesArray) {
+        contentElem.innerText += `${attribute}: ${data.data.personalBests[item][subItem]['0'][attribute]}\n`;
+        console.log(`${attribute}: ${data.data.personalBests[item][subItem]['0'][attribute]}\n`);
+      }
+      contentElem.innerText += `\n`;
+    }
+
+    contentElem.innerText += "\n";
+  }
+}
 
 fetch("https://api.monkeytype.com/users/sheeeshtyper/profile", requestOptions)
   .then(response => response.json())
   .then(result => {
-    data = result;
-    let userElem = document.getElementById("username-placeholder");
-    console.log(data);
-    userElem.innerText = data.data.name;
-
-    let bestElem = document.getElementById("personal-best-placeholder");
-    console.log(data.data.personalBests);
-    bestElem.innerText = data.data.personalBests.time["60"]["0"].wpm + "wpm";
+    console.log(result);
+    handleData(result);
   })
   .catch(error => console.log('error', error));

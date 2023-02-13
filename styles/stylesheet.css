@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    background-color: black;
+    color: #39ff14;
 }
 
 .flex {
@@ -9,6 +11,18 @@ body {
 }
 
 #header {
-    height: 3rem;
-    background-color: aqua;
+    height: 5rem;
+}
+
+.header-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    font-weight: 900;
+}
+
+#username-placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    font-weight: 900;
+    font-style: italic;
 }
