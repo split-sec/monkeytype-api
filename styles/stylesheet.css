@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    background-color: black;
+    background-color: rgb(31, 31, 31);
+    font-family: 'Fira Code', monospace;
     color: #39ff14;
 }
 
@@ -25,4 +26,19 @@ body {
     font-size: 2em;
     font-weight: 900;
     font-style: italic;
+}
+
+th, td {
+    padding: 5px;
+}
+
+table, th, td {
+    border: 1px solid #39ff14;
+}
+
+table {
+    border-style: dashed;
+    border-spacing: 8px;
+    height: 10rem;
+    width: 50%;
 }
