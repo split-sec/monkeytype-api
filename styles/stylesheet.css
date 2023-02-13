@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+}
+
+#header {
+    height: 3rem;
+    background-color: aqua;
+}
