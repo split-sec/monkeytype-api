@@ -112,6 +112,13 @@ fetch("https://api.monkeytype.com/users/sheeeshtyper/profile", requestOptions)
   .then(response => response.json())
   .then(result => {
     console.log(result);
+
+    /*
+    ***************************
+    ********handleData method commented out for debuggin purpose******
+    ************can be reused whenever required************
+    ***************************
+    */
     // handleData(result);
     handleTableData(result);
   })

@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: rgb(31, 31, 31);
+    background-color: rgb(68, 68, 68);
     font-family: 'Fira Code', monospace;
     color: #39ff14;
 }
@@ -19,6 +19,10 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 3em;
     font-weight: 900;
+}
+
+.body1 {
+    padding: 10px 20px;
 }
 
 #username-placeholder {
