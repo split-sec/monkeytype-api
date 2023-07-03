@@ -1,4 +1,7 @@
-// let fs = require('fs').promises;
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+
+},{}],2:[function(require,module,exports){
+let fs = require('fs').promises;
 
 /*
 ***************************
@@ -116,44 +119,47 @@ function handleTableData(result) {
 }
 
 
-// async function readFile(filePath) {
-//   try {
-//     let data = await fs.readFile(filePath);
-//     if(!data) {
-//       fetch("https://api.monkeytype.com/users/sheeeshtyper/profile", requestOptions)
-//       .then(response => response.json())
-//       .then(result => {
-//         handleTableData(result);
-//         return result;
-//       })
-//       .then(result => {
-//         async function openFile() {
-//           await fs.writeFile('content.txt', result);
-//         }
-//       })
-//     }
+async function readFile(filePath) {
+  try {
+    let data = await fs.readFile(filePath);
+    if(!data) {
+      fetch("https://api.monkeytype.com/users/sheeeshtyper/profile", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        console.log("here");
+        handleTableData(result);
+        return result;
+      })
+      .then(result => {
+        async function openFile() {
+          await fs.writeFile('content.txt', result);
+        }
+      })
+    }
 
-//     data = await fs.readFile(filePath);
-//   } catch (error) {
-//     console.error(`Got an error trying to read the file: ${error.message}`);
-//   }
-// }
+    data = await fs.readFile(filePath);
+  } catch (error) {
+    console.error(`Got an error trying to read the file: ${error.message}`);
+  }
+}
 
-fetch("https://api.monkeytype.com/users/sheeeshtyper/profile", requestOptions)
-  .then(response => response.json())
-  .then(result => {
-    console.log(result);
+// fetch("https://api.monkeytype.com/users/sheeeshtyper/profile", requestOptions)
+//   .then(response => response.json())
+//   .then(result => {
+//     console.log(result);
 
-    /*
-    ***************************
-    ********handleData method commented out for debuggin purpose******
-    ************can be reused whenever required************
-    ***************************
-    */
-    // handleData(result);
-    handleTableData(result);
-  })
-  // .then(() => {
-  //   console.log(document.getElementById('bestWPMtime60').innerText);
-  // })
-  .catch(error => console.log('error', error));
+//     /*
+//     ***************************
+//     ********handleData method commented out for debuggin purpose******
+//     ************can be reused whenever required************
+//     ***************************
+//     */
+//     // handleData(result);
+//     handleTableData(result);
+//   })
+//   // .then(() => {
+//   //   console.log(document.getElementById('bestWPMtime60').innerText);
+//   // })
+//   .catch(error => console.log('error', error));
+
+},{"fs":1}]},{},[2]);
